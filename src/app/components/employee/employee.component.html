@@ -1,0 +1,52 @@
+<div class="employees-table">
+
+    <div class="add-button-container">
+        <button mat-raised-button (click)="createUser()" class="add-button">
+            Add Employee
+    </button>
+</div>
+<!-- <div *ngIf="employeeService.employeeBeaviorSubject$"> -->
+
+    <table mat-table [dataSource]="employeeService.employeeBeaviorSubject$">
+        
+        <ng-container matColumnDef="img">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let _employee" >
+            <img alt="employee img" [src]="_employee.img" *ngIf="_employee.img" />
+        </td>
+
+        <!-- https://randomuser.me/api/ -->
+    </ng-container>
+    
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let _employee">{{_employee.fullName}}</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="department">
+        <th mat-header-cell *matHeaderCellDef>Department</th>
+        <td mat-cell *matCellDef="let _employee">{{_employee.department}}</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <td mat-cell>
+            <mat-cell *matCellDef="let row">
+                <button mat-icon-button (click)="onEdit(row)"><mat-icon>edit</mat-icon></button>
+                <button mat-icon-button (click)="onDelete(row.id)" color="warn"><mat-icon>delete_outline</mat-icon></button>
+            </mat-cell>
+        </td>
+    </ng-container>
+    
+    <!-- Defining templates for header and body of the table -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+</table>
+<!-- <div *ngIf="list.length < 1">
+    No data
+</div> -->
+<!-- </div> -->
+
+
+</div>

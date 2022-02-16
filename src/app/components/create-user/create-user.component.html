@@ -1,0 +1,44 @@
+<!-- <mat-toolbar>
+    <span>{{service.form.controls['id'].value?"Modify Employee":"New Employee"}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  </mat-toolbar> -->
+  <form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
+    <mat-grid-list cols="2" rowHeight="300px">
+      <mat-grid-tile>
+        <div class="controles-container">
+          <input type="hidden" formControlName="id">
+          <mat-form-field>
+            <input formControlName="fullName" matInput placeholder="Full Name">
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+            <!-- <input type="file" (change)="onFileSelected()"formControlName="img" matInput placeholder="Image"> -->
+            <button type="button"  mat-raised-button (click)="fileInput.click()">Choose File</button>
+            <input hidden #fileInput type="file">
+            <!-- <mat-error>Invalid image type</mat-error> -->
+
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="controles-container">
+          <mat-form-field>
+            <mat-select formControlName="department" placeholder=" Department">
+              <mat-option>None</mat-option>
+              <ng-container *ngFor="let department of departments">
+                <mat-option value="{{department.id}}">{{department.name}}</mat-option>
+              </ng-container>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="hireDate" matInput [matDatepicker]="picker" placeholder="Hire Date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <div class="button-row">
+            <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid">Submit</button>
+            <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+          </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>

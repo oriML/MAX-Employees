@@ -1,0 +1,42 @@
+{
+  "departments": [
+    {
+      "id": "012",
+      "number": "012",
+      "name": "R&D"
+    },
+    {
+      "id": "014",
+      "number": "014",
+      "name": "Data Security"
+    },
+    {
+      "id": "015",
+      "number": "015",
+      "name": "Finance"
+    }
+  ],
+  "employees": [
+    {
+      "id": "kzpdbqk714ctqmu2f5ni",
+      "fullName": "Jack Robinzon",
+      "img": null,
+      "department": "014",
+      "hireDate": "2016-02-07"
+    },
+    {
+      "id": "kzpdoyyj0bpqicn74k8p",
+      "fullName": "Jack Robinzon GURU",
+      "img": null,
+      "department": "012",
+      "hireDate": "2022-02-02"
+    },
+    {
+      "id": "kzphvydckzeeyn1u44",
+      "fullName": "Jack Robinzon",
+      "img": null,
+      "department": "015",
+      "hireDate": "2022-02-03"
+    }
+  ]
+}
